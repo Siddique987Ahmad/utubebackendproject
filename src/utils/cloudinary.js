@@ -16,8 +16,8 @@ if(!fileLocalPath) return null;
 const response=await cloudinary.uploader.upload(fileLocalPath,{
     resource_type:"auto"
 })
-console.log("File uploaded",response.url);
-
+//console.log("File uploaded",response.url);
+fs.unlinkSync(fileLocalPath);
 return response;
         
     } catch (error) {
@@ -28,3 +28,5 @@ return response;
     }
 
 }
+
+export default uploadOnCloudinary;
